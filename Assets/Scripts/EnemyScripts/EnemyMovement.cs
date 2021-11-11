@@ -29,7 +29,7 @@ public class EnemyMovement : MonoBehaviour
         playerTarget = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
 
     }
-
+     
 
     // Start is called before the first frame update
     void Start()

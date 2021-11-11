@@ -17,7 +17,7 @@ public class HealthScript : MonoBehaviour
 
     private void Awake()
     {
-        animationScript = GetComponent<CharacterAnimation>();
+        animationScript = GetComponentInChildren<CharacterAnimation>();
     }
 
 
@@ -26,6 +26,11 @@ public class HealthScript : MonoBehaviour
 
         if (characterDied)
             return;
+
+         health -= damage;
+
+        //3,42
+
 
         if (health <= 0f)
         {
@@ -63,6 +68,6 @@ public class HealthScript : MonoBehaviour
     }//aply damage
 
 
-    //3,17
+  
 
 }//class
