@@ -64,4 +64,3 @@ public class ShakeCamera : MonoBehaviour
     }
 
 }
-//3,57
