@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 86b7492c60bea094a9a01d95fe2fcf0a
+  - enabled: 1
+    path: Assets/Scenes/Beat Em Up City.unity
+    guid: 22fdc264bf5c1e5498672aa170eb4ff8
   m_configObjects: {}

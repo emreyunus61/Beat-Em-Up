@@ -19,6 +19,8 @@ public class CharacterAnimationDelegate : MonoBehaviour
 
     private EnemyMovement enemy_Movement;
 
+    private ShakeCamera shakeCamera;
+
 
    void Awake()
     {
@@ -28,8 +30,9 @@ public class CharacterAnimationDelegate : MonoBehaviour
         if (gameObject.CompareTag(Tags.ENEMY_TAG))
         {
             enemy_Movement = GetComponentInParent<EnemyMovement>();
-        } 
+        }
 
+        shakeCamera = GameObject.FindWithTag(Tags.MAIN_CAMERA_TAG).GetComponent<ShakeCamera>();
     }
 
     void Left_Arm_Attack_On()
@@ -158,11 +161,29 @@ public class CharacterAnimationDelegate : MonoBehaviour
     void DisableMovement()
     {
         enemy_Movement.enabled = false;
+        //düþman enemy varsayýlan katmana ayarla
+        transform.parent.gameObject.layer = 0;
     }
     
     void EnableMovement()
     {
         enemy_Movement.enabled = true;
+        transform.parent.gameObject.layer = 10;
+    }
+    void ShakeCameraOnFall()
+    {
+        shakeCamera.ShouldShake = true;
     }
 
+    void CharacterDied()
+    {
+        Invoke("DeacctivateGameobjecy", 2f);
+    }
+
+    void DeactivateGameObject()
+    {
+        EnemyManager.instance.SpawnEnemy();
+
+        gameObject.SetActive(false);
+    }
 }

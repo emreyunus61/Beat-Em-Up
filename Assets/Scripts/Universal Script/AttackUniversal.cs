@@ -11,7 +11,7 @@ public class AttackUniversal : MonoBehaviour
 
     public bool is_Player, is_Enemy;
 
-    public GameObject hit_FX_Prefabs;
+    public GameObject hit_FX_Prefab;
 
     void Update()
     {
@@ -39,7 +39,7 @@ public class AttackUniversal : MonoBehaviour
                     hitFX_Pos.x -= 0.3f;
                 }
 
-                Instantiate(hit_FX_Prefabs, hitFX_Pos, Quaternion.identity);
+                Instantiate(hit_FX_Prefab, hitFX_Pos, Quaternion.identity);
 
                 if (gameObject.CompareTag(Tags.LEFT_ARM_TAG)||
                    gameObject.CompareTag(Tags.LEFT_LEG_TAG) )
@@ -50,6 +50,11 @@ public class AttackUniversal : MonoBehaviour
                 {
                     hit[0].GetComponent<HealthScript>().ApplyDamage(damage, false);
                 }
+            }
+
+            if (is_Enemy)
+            {
+                hit[0].GetComponent<HealthScript>().ApplyDamage(damage, false);
             }
 
             gameObject.SetActive(false);

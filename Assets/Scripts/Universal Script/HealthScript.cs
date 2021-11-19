@@ -14,10 +14,17 @@ public class HealthScript : MonoBehaviour
 
     public bool is_Player;
 
+    private HealthUI health_UI;
+
 
     private void Awake()
     {
         animationScript = GetComponentInChildren<CharacterAnimation>();
+
+        if (is_Player)
+        {
+            health_UI = GetComponent<HealthUI>();
+        }
     }
 
 
@@ -29,7 +36,12 @@ public class HealthScript : MonoBehaviour
 
          health -= damage;
 
-        //3,42
+        //display health UI
+        if (is_Player)
+        {
+            health_UI.DisplayHealth(health);
+        }
+        
 
 
         if (health <= 0f)
@@ -40,7 +52,8 @@ public class HealthScript : MonoBehaviour
             //if is player deactive enemy script
             if (is_Player)
             {
-
+                GameObject.FindWithTag(Tags.ENEMY_TAG)
+                    .GetComponent<EnemyMovement>().enabled = false;
             }
             return;
         }
