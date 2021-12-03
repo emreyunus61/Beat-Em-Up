@@ -6,15 +6,25 @@ public class PlayerMovement : MonoBehaviour
 {
     private CharacterAnimation player_Anim;
     private Rigidbody myBody;
+    private Rigidbody rb;
+    public float speed = 10f;
+    public bool theGround = true;
 
     public float walk_Speed = 2f;
     public float z_Speed = 1.5f;
 
     private float rotation_Y = -90f;
     private float rotation_Speed = 15f;
-     
+
 
     // Start is called before the first frame update
+
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     void Awake()
     {
         myBody = GetComponent<Rigidbody>();
@@ -27,9 +37,33 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotatePlayer();
+        //float horizontal = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
+        //float vertical = Input.GetAxis("Vertical") * Time.deltaTime * speed;
+
+        //transform.Translate(horizontal, 0, vertical);
+
+        //if (Input.GetButtonDown("Jump") && theGround)
+        //{
+        //    rb.AddForce(new Vector3(0, 11 , 0), ForceMode.Impulse);
+        //    theGround = false;
+        //}
+        
+        RotatePlayer(); //bunlar kalck
         AnimatePlayerWalk();
     }
+
+
+    //zýplama
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.name == "Ground" || collision.gameObject.name == "Enemy")
+    //        {
+    //        theGround = true;
+    //    }
+    //}
+  
+
+
 
     void FixedUpdate()
     {

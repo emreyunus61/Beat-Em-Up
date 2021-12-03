@@ -29,7 +29,7 @@ public class EnemyMovement : MonoBehaviour
         playerTarget = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
 
     }
-     
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +41,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         Attack();
     }
 
@@ -75,14 +75,14 @@ public class EnemyMovement : MonoBehaviour
             followPlayer = false;
             attackPlayer = true;
         }
-
+  
 
     }
 
     void Attack()
     {
         //oyuncuya saldýrmamamýz gerekiyorsa fonksiyondan çýk
-        if (!attackPlayer) 
+        if (!attackPlayer)
             return;
 
         current_Attack_Time += Time.deltaTime;
@@ -93,7 +93,7 @@ public class EnemyMovement : MonoBehaviour
             current_Attack_Time = 0f;
         }
 
-        if (Vector3.Distance(transform.position, playerTarget.position) > attack_Distance + chase_Player_After_Attack )
+        if (Vector3.Distance(transform.position, playerTarget.position) > attack_Distance + chase_Player_After_Attack)
         {
             attackPlayer = false;
             followPlayer = true;

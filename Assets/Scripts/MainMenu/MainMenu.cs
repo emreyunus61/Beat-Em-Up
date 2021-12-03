@@ -23,6 +23,18 @@ public class MainMenu : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    SceneManager.LoadScene("MainMenu");
+        //}
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Beat Em Up City");
+    }
+
+
+
 }

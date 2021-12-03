@@ -163,8 +163,10 @@ public class CharacterAnimationDelegate : MonoBehaviour
         enemy_Movement.enabled = false;
         //düþman enemy varsayýlan katmana ayarla
         transform.parent.gameObject.layer = 0;
+
+
     }
-    
+
     void EnableMovement()
     {
         enemy_Movement.enabled = true;

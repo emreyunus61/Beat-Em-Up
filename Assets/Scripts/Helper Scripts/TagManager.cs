@@ -51,9 +51,10 @@ public class Axis
         public const string UNTAGGED_TAG = "Untagged";
         public const string MAIN_CAMERA_TAG = "MainCamera";
         public const string HEALTH_UI = "HealthUI";
+        public const string HEALTH_UI1 = "HealthUI1";
 
 
-    }
+}
 
 
 
